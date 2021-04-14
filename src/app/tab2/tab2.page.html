@@ -1,17 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Schedule</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content>
+  <ion-item *ngFor="let game of match.events">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          {{game.strHomeTeam}}
+        </ion-col>
+        <ion-col class="ion-text-center">
+          vs
+        </ion-col>
+        <ion-col class="ion-text-center">
+          {{game.strAwayTeam}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <small>
+            <ion-label color="medium">
+              {{game.strDate}} - {{game.strTime}}
+            </ion-label>
+          </small>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 </ion-content>
